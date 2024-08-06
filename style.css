@@ -1,0 +1,139 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Public Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+.black-head {
+  background-color: #191c1f;
+  padding: 10px 60px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tilted-black {
+  background-color: #f3de6d;
+  color: #191c1f;
+  padding: 10px;
+}
+
+.upto-59-off {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.off-percent {
+  color: #ebc80c;
+  font-size: 30px;
+}
+
+.shop-now {
+  background-color: #ebc80c;
+  color: #191c1f;
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  display: flex;
+  gap: 10px;
+}
+
+.about-head,
+.main-head {
+  padding: 20px 60px;
+  background-color: #1b6392;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 200;
+  box-shadow: 0px -1px 0px 0px #ffffff29 inset;
+}
+
+.right-head-links {
+  display: flex;
+  gap: 30px;
+}
+
+.social {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.logo p {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.input-search {
+  background-color: #fff;
+  box-shadow: 0px 8px 32px 0px #00000014;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  padding: 0 20px;
+  border-radius: 2px;
+}
+
+.input-text {
+  border: none;
+  color: #77878f;
+  width: 100%;
+}
+
+.input-text:focus {
+  outline: none;
+}
+
+.head-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 25px;
+}
+
+section {
+  padding: 20px 60px;
+}
+
+.top-sections {
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 10px;
+  box-shadow: 0px -1px 0px 0px #e4e7e9 inset;
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: #5f6c72;
+  padding: 20px;
+}
+
+.all-category {
+  background-color: #f2f4f5;
+  color: #191c1f;
+}
