@@ -28,7 +28,10 @@
         </div>
 
         <div class="head-icons">
-          <div class="head-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+          <div style="position: relative" class="head-icon">
+            <p class="items-in-cart">0</p>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
           <div class="head-icon"><i class="fa-regular fa-heart"></i></div>
           <div class="head-icon"><i class="fa-regular fa-user"></i></div>
         </div>
@@ -69,35 +72,30 @@
             <p style="width: 20%">SUB-TOTAL</p>
           </div>
           <div class="cart-products">
-            <div class="cart-product">
-              <div style="width: 50%" class="cart-product-details">
-                <img style="width: 60px" src="section1.png" alt="" />
-                <p>4K UHD LED Smart TV with Chromecast Built-in</p>
-              </div>
-              <p style="width: 10%">$70</p>
-              <div style="width: 20%" class="cart-product-quantity">
-                <div class="quantity">
-                  <div class="minus"><i class="fa-solid fa-minus"></i></div>
-                  <div class="quantity-no">1</div>
-                  <div class="plus"><i class="fa-solid fa-plus"></i></div>
+            <div class="cart-product-container">
+              <div class="cart-product">
+                <div style="width: 50%" class="cart-product-details">
+                  <img
+                    class="cart-product-img"
+                    style="width: 60px"
+                    src="section1.png"
+                    alt=""
+                  />
+                  <p class="cart-product-name">
+                    4K UHD LED Smart TV with Chromecast Built-in
+                  </p>
                 </div>
-              </div>
-              <p style="width: 20%">$70</p>
-            </div>
-            <div class="cart-product">
-              <div style="width: 50%" class="cart-product-details">
-                <img style="width: 60px" src="section1.png" alt="" />
-                <p>4K UHD LED Smart TV with Chromecast Built-in</p>
-              </div>
-              <p style="width: 10%">$70</p>
-              <div style="width: 20%" class="cart-product-quantity">
-                <div class="quantity">
-                  <div class="minus"><i class="fa-solid fa-minus"></i></div>
-                  <div class="quantity-no">1</div>
-                  <div class="plus"><i class="fa-solid fa-plus"></i></div>
+                <p class="cart-product-price" style="width: 10%">88</p>
+                <div style="width: 20%" class="cart-product-quantity">
+                  <div class="quantity">
+                    <div class="minus"><i class="fa-solid fa-minus"></i></div>
+                    <div class="quantity-no">1</div>
+                    <div class="plus"><i class="fa-solid fa-plus"></i></div>
+                  </div>
                 </div>
+
+                <p class="cart-product-subtotal" style="width: 20%">$70</p>
               </div>
-              <p style="width: 20%">$70</p>
             </div>
           </div>
           <div class="return-update">
@@ -112,24 +110,26 @@
           <div class="amount-list">
             <div class="amount-desc">
               <p class="amount-label">Sub-total</p>
-              <p class="amount">$320</p>
+              <p class="amount">$ <span class="sub-total">320</span></p>
             </div>
             <div class="amount-desc">
               <p class="amount-label">Shipping</p>
-              <p class="amount">Free</p>
+              <p class="amount"><span class="shipping-charge">Free</span></p>
             </div>
             <div class="amount-desc">
               <p class="amount-label">Discount</p>
-              <p class="amount">$24</p>
+              <p class="amount">$<span class="discount">24</span></p>
             </div>
             <div class="amount-desc">
               <p class="amount-label">Tax</p>
-              <p class="amount">$61.99</p>
+              <p class="amount">$<span class="tax">61.99</span></p>
             </div>
           </div>
           <div class="total">
             <p style="font-weight: 300">Total</p>
-            <p style="font-weight: 600">$357.99 USD</p>
+            <p style="font-weight: 600">
+              $ <span class="total-amount">357.99</span> USD
+            </p>
           </div>
 
           <button class="proceed-button">
@@ -234,6 +234,6 @@
         Kinbo - eCommerce Template © 2021. Design by Templatecookie
       </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="cart-script.js"></script>
   </body>
 </html>

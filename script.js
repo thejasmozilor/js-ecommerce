@@ -25,7 +25,7 @@ let quantity = 1;
 products.forEach((product) => {
   product.addEventListener("click", () => {
     modalName.textContent = product.querySelector(".pro-name").textContent;
-    modalPrice.textContent = product.querySelector(".pro-price").textContent;
+    modalPrice.textContent = product.querySelector(".actual-price").textContent;
     modalImage.src = product.querySelector(".pro-img").src;
 
     if (currentProduct === product) {
@@ -64,7 +64,7 @@ plus.addEventListener("click", () => {
 });
 
 minus.addEventListener("click", () => {
-  if (quantity > 0) {
+  if (quantity > 1) {
     quantity--;
     quantityNo.textContent = quantity;
   }
@@ -99,6 +99,8 @@ addToCart.addEventListener("click", () => {
 
   localStorage.setItem("cart", JSON.stringify(cart));
 
+  updateCartItemCount();
+
   // Optionally show a confirmation message or update the cart icon
   alert(`${quantity} ${productName} added to cart`);
 });
@@ -108,3 +110,11 @@ const goToCart = document.querySelector(".go-to-cart");
 goToCart.addEventListener("click", () => {
   window.location.href = "cart.html";
 });
+
+const updateCartItemCount = () => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+  document.querySelector(".items-in-cart").textContent = itemCount;
+};
+
+updateCartItemCount();
