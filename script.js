@@ -72,13 +72,44 @@ minus.addEventListener("click", () => {
 
 const addToCart = document.querySelector(".item-add-cart");
 
+// Using cookies to store cart
+
+const setCookie = (name, value, days) => {
+  let expires = "";
+  if (days) {
+    const date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = `expires=${date.toUTCString()};`;
+  }
+  document.cookie = `${name}=${encodeURIComponent(value)}; ${expires}path=/`;
+};
+
+const getCookie = (name) => {
+  const nameEQ = `${name}=`;
+  const ca = document.cookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === " ") c = c.substring(1);
+    if (c.indexOf(nameEQ) === 0)
+      return decodeURIComponent(c.substring(nameEQ.length));
+  }
+  return null;
+};
+
+const eraseCookie = (name) => {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+};
+
+// Cookies function for cart finished
+
 addToCart.addEventListener("click", () => {
   const productName = document.querySelector(".modal-name").textContent;
   const productPrice = document.querySelector(".modal-price").textContent;
   const productImage = document.querySelector(".modal-img").src;
 
   // Add item to cart
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(getCookie("cart")) || [];
 
   const existingProductIndex = cart.findIndex(
     (item) => item.name === productName
@@ -97,7 +128,8 @@ addToCart.addEventListener("click", () => {
     });
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+  // localStorage.setItem("cart", JSON.stringify(cart));
+  setCookie("cart", JSON.stringify(cart), 7);
 
   updateCartItemCount();
 
@@ -112,7 +144,8 @@ goToCart.addEventListener("click", () => {
 });
 
 const updateCartItemCount = () => {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(getCookie("cart")) || [];
   const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
   document.querySelector(".items-in-cart").textContent = itemCount;
 };

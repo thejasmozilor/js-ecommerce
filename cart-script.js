@@ -1,8 +1,32 @@
 const cartProducts = document.querySelector(".cart-products");
 const cartProduct = document.querySelector(".cart-product-container");
 
+const setCookie = (name, value, days) => {
+  let expires = "";
+  if (days) {
+    const date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = `expires=${date.toUTCString()};`;
+  }
+  document.cookie = `${name}=${encodeURIComponent(value)}; ${expires}path=/`;
+};
+
+// Retrieve cart from cookies
+const getCookie = (name) => {
+  const nameEQ = `${name}=`;
+  const ca = document.cookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === " ") c = c.substring(1);
+    if (c.indexOf(nameEQ) === 0)
+      return decodeURIComponent(c.substring(nameEQ.length));
+  }
+  return null;
+};
+
 // Retrieve cart from localStorage
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
+// const cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(getCookie("cart")) || [];
 
 console.log(cart);
 
@@ -46,7 +70,8 @@ cartProducts.addEventListener("click", (event) => {
       alert(`${cart[itemIndex].name} has been removed from cart`);
       cart.splice(itemIndex, 1);
 
-      localStorage.setItem("cart", JSON.stringify(cart));
+      // localStorage.setItem("cart", JSON.stringify(cart));
+      setCookie("cart", JSON.stringify(cart), 7);
     }
     renderCart();
     cartTotal();
@@ -73,7 +98,8 @@ cartProducts.addEventListener("click", (event) => {
         } else {
           cart[itemIndex].quantity = quantity;
         }
-        localStorage.setItem("cart", JSON.stringify(cart));
+        // localStorage.setItem("cart", JSON.stringify(cart));
+        setCookie("cart", JSON.stringify(cart), 7);
       }
       renderCart();
       cartTotal();
@@ -93,7 +119,8 @@ cartProducts.addEventListener("click", (event) => {
     const itemIndex = cart.findIndex((item) => item.name === productName);
     if (itemIndex > -1) {
       cart[itemIndex].quantity = quantity;
-      localStorage.setItem("cart", JSON.stringify(cart));
+      // localStorage.setItem("cart", JSON.stringify(cart));
+      setCookie("cart", JSON.stringify(cart), 7);
     }
     cartTotal();
     updateCartItemCount();
@@ -132,7 +159,8 @@ const cartTotal = () => {
 cartTotal();
 
 const updateCartItemCount = () => {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(getCookie("cart")) || [];
   const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
   document.querySelector(".items-in-cart").textContent = itemCount;
 };
