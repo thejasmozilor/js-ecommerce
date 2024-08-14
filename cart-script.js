@@ -13,6 +13,7 @@ const setCookie = (name, value, days) => {
 
 // Retrieve cart from cookies
 const getCookie = (name) => {
+  console.log("hoi");
   const nameEQ = `${name}=`;
   const ca = document.cookie.split(";");
   for (let i = 0; i < ca.length; i++) {

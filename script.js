@@ -96,9 +96,9 @@ const getCookie = (name) => {
   return null;
 };
 
-const eraseCookie = (name) => {
-  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-};
+// const eraseCookie = (name) => {
+//   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+// };
 
 // Cookies function for cart finished
 
