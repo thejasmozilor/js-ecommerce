@@ -27,8 +27,8 @@ const getCookie = (name) => {
 };
 
 // Retrieve cart from localStorage
-// const cart = JSON.parse(localStorage.getItem("cart")) || [];
-let cart = JSON.parse(getCookie("cart")) || [];
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+// let cart = JSON.parse(getCookie("cart")) || [];
 
 console.log(cart);
 
@@ -72,8 +72,8 @@ cartProducts.addEventListener("click", (event) => {
       alert(`${cart[itemIndex].name} has been removed from cart`);
       cart.splice(itemIndex, 1);
 
-      // localStorage.setItem("cart", JSON.stringify(cart));
-      setCookie("cart", JSON.stringify(cart), 7);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      // setCookie("cart", JSON.stringify(cart), 7);
     }
     renderCart();
     cartTotal();
@@ -100,8 +100,8 @@ cartProducts.addEventListener("click", (event) => {
         } else {
           cart[itemIndex].quantity = quantity;
         }
-        // localStorage.setItem("cart", JSON.stringify(cart));
-        setCookie("cart", JSON.stringify(cart), 7);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        // setCookie("cart", JSON.stringify(cart), 7);
       }
       renderCart();
       cartTotal();
@@ -121,8 +121,8 @@ cartProducts.addEventListener("click", (event) => {
     const itemIndex = cart.findIndex((item) => item.name === productName);
     if (itemIndex > -1) {
       cart[itemIndex].quantity = quantity;
-      // localStorage.setItem("cart", JSON.stringify(cart));
-      setCookie("cart", JSON.stringify(cart), 7);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      // setCookie("cart", JSON.stringify(cart), 7);
     }
     cartTotal();
     updateCartItemCount();
@@ -161,8 +161,8 @@ const cartTotal = () => {
 cartTotal();
 
 const updateCartItemCount = () => {
-  // const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const cart = JSON.parse(getCookie("cart")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // const cart = JSON.parse(getCookie("cart")) || [];
   const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
   document.querySelector(".items-in-cart").textContent = itemCount;
 };

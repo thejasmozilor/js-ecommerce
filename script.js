@@ -110,8 +110,8 @@ addToCart.addEventListener("click", () => {
   const productImage = document.querySelector(".modal-img").src;
 
   // Add item to cart
-  // let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let cart = JSON.parse(getCookie("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // let cart = JSON.parse(getCookie("cart")) || [];
 
   const existingProductIndex = cart.findIndex(
     (item) => item.name === productName
@@ -130,8 +130,8 @@ addToCart.addEventListener("click", () => {
     });
   }
 
-  // localStorage.setItem("cart", JSON.stringify(cart));
-  setCookie("cart", JSON.stringify(cart), 7);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  // setCookie("cart", JSON.stringify(cart), 7);
 
   updateCartItemCount();
 
@@ -146,8 +146,8 @@ goToCart.addEventListener("click", () => {
 });
 
 const updateCartItemCount = () => {
-  // const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const cart = JSON.parse(getCookie("cart")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // const cart = JSON.parse(getCookie("cart")) || [];
   const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
   document.querySelector(".items-in-cart").textContent = itemCount;
 };
