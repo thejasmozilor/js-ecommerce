@@ -2,6 +2,7 @@ const cartProducts = document.querySelector(".cart-products");
 const cartProduct = document.querySelector(".cart-product-container");
 
 const setCookie = (name, value, days) => {
+  console.log("sethoi");
   let expires = "";
   if (days) {
     const date = new Date();
@@ -13,7 +14,7 @@ const setCookie = (name, value, days) => {
 
 // Retrieve cart from cookies
 const getCookie = (name) => {
-  console.log("hoi");
+  console.log("gethoi");
   const nameEQ = `${name}=`;
   const ca = document.cookie.split(";");
   for (let i = 0; i < ca.length; i++) {

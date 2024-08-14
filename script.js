@@ -75,6 +75,7 @@ const addToCart = document.querySelector(".item-add-cart");
 // Using cookies to store cart
 
 const setCookie = (name, value, days) => {
+  console.log("sethoi");
   let expires = "";
   if (days) {
     const date = new Date();
@@ -85,6 +86,7 @@ const setCookie = (name, value, days) => {
 };
 
 const getCookie = (name) => {
+  console.log("gethoi");
   const nameEQ = `${name}=`;
   const ca = document.cookie.split(";");
   for (let i = 0; i < ca.length; i++) {
