@@ -47,7 +47,7 @@
 document.addEventListener("cookieyes_banner_load", function () {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get("openPreferences") === "true") {
-    document.querySelector(".cky-banner-element").click();
+    revisitCkyConsent()
   }
 });
 
