@@ -47,9 +47,13 @@
 document.addEventListener("cookieyes_banner_load", function () {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get("openPreferences") === "true") {
-    revisitCkyConsent()
+    const data = eventData.detail;
+    if (data.isUserActionCompleted=== true ) {
+      revisitCkyConsent()
+   }
   }
 });
+
 
 </script>
 	  
