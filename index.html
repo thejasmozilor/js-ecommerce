@@ -44,7 +44,7 @@
     />
 
 <script>
-document.addEventListener("cookieyes_banner_load", function () {
+document.addEventListener("cookieyes_banner_load", function (eventData) {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get("openPreferences") === "true") {
     const data = eventData.detail;
