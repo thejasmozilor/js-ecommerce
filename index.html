@@ -16,29 +16,7 @@
     </script>
     <!-- End Google Tag Manager -->
 	<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/e28f42b46bde1fe4e110ffb3/script.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('openPreferences') === 'true') {
-    document.body.addEventListener('click', function(event) {
-      if (event.target.classList.contains('cky-banner-element')) {
-        openPreferenceCenter();
-      }
-    });
 
-    // Try to programmatically click if the element exists
-    const settingsElement = document.querySelector('.cky-banner-element');
-    if (settingsElement) {
-      settingsElement.click();
-    }
-  }
-});
-
-function openPreferenceCenter() {
-  console.log('Preference center opened');
-}
-
-</script>
 
 
 
@@ -64,6 +42,19 @@ function openPreferenceCenter() {
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+<script>
+window.onload = function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('openPreferences') === 'true') {
+    // Function to open preference center
+    openPreferenceCenter();
+  }
+};
+function openPreferenceCenter() {
+  // Code to open the preference center
+  document.querySelector('.cky-banner-element').click();
+}
+</script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
