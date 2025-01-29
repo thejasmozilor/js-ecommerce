@@ -20,13 +20,17 @@
 window.onload = function() {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('openPreferences') === 'true') {
-    // Function to open preference center
-    openPreferenceCenter();
+    setTimeout(openPreferenceCenter, 1000); // Wait for 1000 milliseconds before running
   }
 };
+
 function openPreferenceCenter() {
-  // Code to open the preference center
-  document.querySelector('.cky-banner-element').click();
+  const settingsElement = document.querySelector('.cky-banner-element');
+  if (settingsElement) {
+    settingsElement.click();
+  } else {
+    console.error('The cookie settings element could not be found.');
+  }
 }
 
 </script>
