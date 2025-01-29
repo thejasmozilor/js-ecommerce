@@ -17,6 +17,27 @@
     <!-- End Google Tag Manager -->
 	<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/e28f42b46bde1fe4e110ffb3/script.js"></script>
 
+window.onload = function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('openPreferences') === 'true') {
+    // Function to open preference center
+    openPreferenceCenter();
+  }
+};
+function openPreferenceCenter() {
+  // Code to open the preference center
+  document.querySelector('.cky-banner-element').click();
+}
+
+
+
+
+
+
+
+
+
+
   <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-Commerce</title>
