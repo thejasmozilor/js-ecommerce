@@ -42,19 +42,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
 <script>
-window.onload = function() {
+document.addEventListener("cookieyes_banner_load", function () {
   const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('openPreferences') === 'true') {
-    // Function to open preference center
-    openPreferenceCenter();
+  if (urlParams.get("openPreferences") === "true") {
+    document.querySelector(".cky-banner-element").click();
   }
-};
-function openPreferenceCenter() {
-  // Code to open the preference center
-  document.querySelector('.cky-banner-element').click();
-}
+});
+
 </script>
+	  
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
