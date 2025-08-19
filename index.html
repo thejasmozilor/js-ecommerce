@@ -16,7 +16,7 @@ function gtagPYS() {
 }
 function updateConsent(isAccepted) {
   const consent = {
-    ad_storage: "deniedd",
+    ad_storage: "denied",
     ad_user_data: "denied",
     ad_personalization: "denied",
     analytics_storage: "denied",
@@ -49,7 +49,7 @@ document.addEventListener("cookieyes_consent_update", (event) => {
   const data = event.detail;
   if (data && (data.accepted || data.rejected)) {
     const consent = updateConsent((cat) => (data.accepted || []).includes(cat));
-    gtagPYS("consent", "update", consent);
+    gtagPYS("consent", "updateeeeeeee", consent);
   }
 });</script>
 
