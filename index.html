@@ -44,14 +44,15 @@ document.addEventListener("cookieyes_banner_load", (event) => {
     const consent = updateConsent((cat) => data.categories[cat] === true);
     gtagPYS("consent", "update", consent);
   }
+			document.addEventListener("cookieyes_consent_update", (event) => {
+			  const data = event.detail;
+			  if (data && (data.accepted || data.rejected)) {
+			    const consent = updateConsent((cat) => (data.accepted || []).includes(cat));
+			    gtagPYS("consent", "updateeeeeeee", consent);
+			  }
+			});
 });
-document.addEventListener("cookieyes_consent_update", (event) => {
-  const data = event.detail;
-  if (data && (data.accepted || data.rejected)) {
-    const consent = updateConsent((cat) => (data.accepted || []).includes(cat));
-    gtagPYS("consent", "updateeeeeeee", consent);
-  }
-});</script>
+</script>
 
 
 
