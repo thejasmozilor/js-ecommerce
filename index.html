@@ -3,24 +3,23 @@
   <head>
 <script>
 document.addEventListener('cookieyes_banner_load', () => {
-    const noticeContainer = document.querySelector('.cky-notice');
-    if (noticeContainer) {
-            const preferenceLink = document.createElement('a');
-        preferenceLink.id = 'RevButton';
-        
-      
-        preferenceLink.innerText = 'Cookie Settings' ;
-                   preferenceLink.style.display = 'block';
-        preferenceLink.style.marginTop = '12px';
-        preferenceLink.style.color = '#0073e6'; 
-        preferenceLink.style.cursor = 'pointer';        preferenceLink.addEventListener('click', function () {
-            revisitCkyConsent();
-        });        noticeContainer.appendChild(preferenceLink);
-    } else {
-        console.log('Cookie notice container not found');
-    }
-}); 
+  const desc = document.querySelector('.cky-notice .cky-notice-des');
+  if (!desc) {
+    console.log('Cookie notice description container not found');
+    return;
+  }
 
+  const links = desc.querySelectorAll('a');
+  for (const link of links) {
+    if ((link.textContent || '').trim().toLowerCase() === 'cookie settings') {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        revisitCkyConsent();
+      });
+      break;
+    }
+  }
+});
 </script>
    <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
