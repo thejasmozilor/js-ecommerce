@@ -8,7 +8,6 @@ document.addEventListener('cookieyes_banner_load', () => {
     console.log('Cookie notice description container not found');
     return;
   }
-
   const links = desc.querySelectorAll('a');
   for (const link of links) {
     if ((link.textContent || '').trim().toLowerCase() === 'cookie settings') {
